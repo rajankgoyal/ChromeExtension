@@ -1,0 +1,19 @@
+{
+  "name": "Commands",
+  "version": "0.0.2",
+  "manifest_version": 3,
+  "minimum_chrome_version": "46",
+  "action": {
+    "default_title": "My List",
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "logo.png"
+
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ]
+}
