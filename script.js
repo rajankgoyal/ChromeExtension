@@ -1,30 +1,13 @@
 var Elements = [];
-
-//getFromStroage();
+// Initiates the data
 getInitData();
 
 // Gets objects from storage
-function getFromStroage() {
-    var value = "33";
-    chrome.storage.local.get(['key'],
-        function (result) {
-            value = result.key;
-            Elements.push(value);
-            addButton();
-        }
-    );
-}
-
-
 function getInitData(){
-    // localStorageElements = JSON.parse(chrome.storage.local.get('Elements'));
-    // alert(localStorageElements);
-
-
     chrome.storage.local.get({ElementArray: []},
         function (result) {
             Elements = result.ElementArray;
-            //Elements.push(value);
+            //Creates buttons from Elements array data
             addButton();
         }
     );
@@ -38,7 +21,7 @@ function addButton() {
         const e = document.createElement("button");
         e.innerHTML = Elements[i];
         e.id = Elements[i];
-        e.addEventListener("click", event => {
+        e.addEventListener("click", () => {
             //handle click
             myFunction(e.id);
         });
@@ -46,15 +29,6 @@ function addButton() {
     }
     var UlElement = document.getElementById('LanguagesDiv');
     UlElement.appendChild(fragment);
-// Adds copy function to each button
-/*    document.querySelectorAll('button').forEach(item => {
-        item.addEventListener('click', event => {
-            //handle click
-            myFunction(item.id);
-        })
-
-    });*/
-
 }
 
 
@@ -73,24 +47,18 @@ addInputButton.addEventListener("click", addData);
 
 function addData() {
     const inputText = document.getElementById("input-get").value;
-    //alert(inputText);
+    //Removes data if the input Text exists in the Elements Array
     if (Elements.includes(inputText)) {
-        //alert("It's included")
-
-
         Elements = removeItemOnce(Elements, inputText);
-        alert(Elements);
         saveData();
-        //chrome.storage.local.remove("key",function() {
-            // Your code
-            // This is an asyn function
     }
+    // If the data doesn't exist in the Element Array, it adds data and saves it.
     else{
         Elements.push(inputText);
         saveData();
     }
 }
-
+// Saves the Element array in the chrome local storage
 function saveData(){
     chrome.storage.local.set({'ElementArray': Elements});
 }
