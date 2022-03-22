@@ -52,8 +52,9 @@ function addData() {
         Elements = removeItemOnce(Elements, inputText);
         saveData();
     }
+
     // If the data doesn't exist in the Element Array, it adds data and saves it.
-    else{
+    else if(inputText !== ''){
         Elements.push(inputText);
         saveData();
     }
