@@ -26,6 +26,19 @@ p {
     background-color: #810736; /* Green */
     color: white;
 }
+.noteDiv{
+    padding: 10px 16px;
+    text-align: center;
+}
 label{
     color: #dc017e;
+}
+button{
+    background-color: #586467;
+
+    color: #f1f1f1;
+}
+button:hover {
+    background-color: #810736; /* Green */
+    color: white;
 }
