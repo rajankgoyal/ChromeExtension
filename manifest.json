@@ -1,6 +1,6 @@
 {
-  "name": "Commands",
-  "version": "0.0.3",
+  "name": "Click To Copy",
+  "version": "0.0.4",
   "manifest_version": 3,
   "minimum_chrome_version": "46",
   "action": {

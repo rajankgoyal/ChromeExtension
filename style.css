@@ -1,9 +1,31 @@
 body {
-    background-color: powderblue;
+    background-color: #3b3737;
 }
-h1 {
-    color: blue;
+h2 {
+    color: #dc017e;
 }
 p {
     color: red;
+}
+
+.btn {
+    background-color: #636c63;
+    border: none;
+    color: white;
+    padding: 4px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+.btn:hover {
+    background-color: #810736; /* Green */
+    color: white;
+}
+label{
+    color: #dc017e;
 }

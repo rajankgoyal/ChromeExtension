@@ -15,25 +15,26 @@ function getInitData(){
 
 // Adds button to the page
 function addButton() {
-    var fragment = document.createDocumentFragment();
-    for (var i = 0; i < Elements.length; i++) {
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < Elements.length; i++) {
         // alert(Elements[i]);
         const e = document.createElement("button");
         e.innerHTML = Elements[i];
         e.id = Elements[i];
+        e.classList.add("btn");
         e.addEventListener("click", () => {
             //handle click
             myFunction(e.id);
         });
         fragment.appendChild(e);
     }
-    var UlElement = document.getElementById('LanguagesDiv');
+    const UlElement = document.getElementById('LanguagesDiv');
     UlElement.appendChild(fragment);
 }
 
 
 function myFunction(id) {
-    var r = document.createRange();
+    const r = document.createRange();
     r.selectNode(document.getElementById(id));
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(r);
@@ -49,10 +50,9 @@ function addData() {
     const inputText = document.getElementById("input-get").value;
     //Removes data if the input Text exists in the Elements Array
     if (Elements.includes(inputText)) {
-        Elements = removeItemOnce(Elements, inputText);
+        Elements = removeItem(Elements, inputText);
         saveData();
     }
-
     // If the data doesn't exist in the Element Array, it adds data and saves it.
     else if(inputText !== ''){
         Elements.push(inputText);
@@ -64,8 +64,8 @@ function saveData(){
     chrome.storage.local.set({'ElementArray': Elements});
 }
 
-function removeItemOnce(arr, value) {
-    var index = arr.indexOf(value);
+function removeItem(arr, value) {
+    const index = arr.indexOf(value);
     if (index > -1) {
         arr.splice(index, 1);
     }
